@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Face.png-e41eed61b1784b456e1f35b2dadeae31.stex"
+path="res://.import/pressed_Timer.png-e311b9749f18af3bfbe005f51600448d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Face.png"
-dest_files=[ "res://.import/Face.png-e41eed61b1784b456e1f35b2dadeae31.stex" ]
+source_file="res://images/Buttons/pressed_Timer.png"
+dest_files=[ "res://.import/pressed_Timer.png-e311b9749f18af3bfbe005f51600448d.stex" ]
 
 [params]
 

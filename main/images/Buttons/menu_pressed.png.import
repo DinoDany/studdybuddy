@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_meditation.png-97f6770f2506255d3947f0c782a40515.stex"
+path="res://.import/menu_pressed.png-f348613b1050ea4036ffd064ee79105c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/button_meditation.png"
-dest_files=[ "res://.import/button_meditation.png-97f6770f2506255d3947f0c782a40515.stex" ]
+source_file="res://images/Buttons/menu_pressed.png"
+dest_files=[ "res://.import/menu_pressed.png-f348613b1050ea4036ffd064ee79105c.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_teachme.png-2057940d014fb4ff5cacf73f8d62667b.stex"
+path="res://.import/button_menu.png-2397910a0fcb791be82cff109fff283a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/button_teachme.png"
-dest_files=[ "res://.import/button_teachme.png-2057940d014fb4ff5cacf73f8d62667b.stex" ]
+source_file="res://images/button_menu.png"
+dest_files=[ "res://.import/button_menu.png-2397910a0fcb791be82cff109fff283a.stex" ]
 
 [params]
 

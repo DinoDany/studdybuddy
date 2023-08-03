@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Face.png-e41eed61b1784b456e1f35b2dadeae31.stex"
+path="res://.import/button_pomodoro.png-5580e030fc8f63dec44b59e6e011d325.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Face.png"
-dest_files=[ "res://.import/Face.png-e41eed61b1784b456e1f35b2dadeae31.stex" ]
+source_file="res://images/Buttons/button_pomodoro.png"
+dest_files=[ "res://.import/button_pomodoro.png-5580e030fc8f63dec44b59e6e011d325.stex" ]
 
 [params]
 
