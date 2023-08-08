@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Face.png-e41eed61b1784b456e1f35b2dadeae31.stex"
+path="res://.import/iddle3-lengua.png-edc2dca883fc061e550a17605e71cbcf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Face.png"
-dest_files=[ "res://.import/Face.png-e41eed61b1784b456e1f35b2dadeae31.stex" ]
+source_file="res://images/sprites/iddle/iddle3-lengua.png"
+dest_files=[ "res://.import/iddle3-lengua.png-edc2dca883fc061e550a17605e71cbcf.stex" ]
 
 [params]
 
