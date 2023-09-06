@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://images/eyesclosing.png" type="Texture" id=1]
+[ext_resource path="res://images/animation_lengua.png" type="Texture" id=2]
+[ext_resource path="res://images/sprites/iddle/Eyebrows.png" type="Texture" id=3]
+[ext_resource path="res://images/sprites/iddle/Mejillas.png" type="Texture" id=4]
+[ext_resource path="res://images/shimmy_eyes.png" type="Texture" id=5]
+[ext_resource path="res://face.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
-resource_name = "eyesclosing"
-length = 0.8
+resource_name = "Idle_eyes"
+length = 1.5
 loop = true
-step = 0.05
+step = 0.03
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -14,18 +19,170 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55 ),
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.24, 0.27, 0.3, 0.33, 0.36 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Eyes_happy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.03 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "happy_eyes"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Eyes_happy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Eyes_happy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Idle_eyes"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "happy_eyes"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachine" id=7]
+states/Idle_eyes/node = SubResource( 3 )
+states/Idle_eyes/position = Vector2( 145, 54.5 )
+states/happy_eyes/node = SubResource( 4 )
+states/happy_eyes/position = Vector2( 380.5, 55 )
+transitions = [ "Idle_eyes", "happy_eyes", SubResource( 5 ), "happy_eyes", "Idle_eyes", SubResource( 6 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle_mouth"
+length = 1.5
+loop = true
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.24, 0.27, 0.3, 0.33, 0.36 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0 ]
 }
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[sub_resource type="AnimationNodeBlendSpace2D" id=10]
 
-[node name="Sprite" type="Sprite" parent="."]
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/BlendSpace2D/node = SubResource( 10 )
+states/BlendSpace2D/position = Vector2( 347, 54 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[node name="Macau" type="KinematicBody2D"]
+script = ExtResource( 6 )
+
+[node name="Eyes" type="Sprite" parent="."]
+
+[node name="Eyes_idle" type="Sprite" parent="Eyes"]
+position = Vector2( -1, 0 )
 texture = ExtResource( 1 )
 hframes = 6
-frame = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/eyesclosing = SubResource( 1 )
+[node name="Eyes_player" type="AnimationPlayer" parent="Eyes"]
+root_node = NodePath("../Eyes_idle")
+anims/Idle_eyes = SubResource( 1 )
+anims/happy_eyes = SubResource( 2 )
+
+[node name="Eyes_happy" type="Sprite" parent="Eyes"]
+visible = false
+position = Vector2( 1, 0 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="Eyes_Tree" type="AnimationTree" parent="Eyes"]
+tree_root = SubResource( 7 )
+anim_player = NodePath("../Eyes_player")
+parameters/playback = SubResource( 8 )
+
+[node name="Mouth" type="Sprite" parent="."]
+
+[node name="Mouth_idle" type="Sprite" parent="Mouth"]
+texture = ExtResource( 2 )
+hframes = 5
+
+[node name="Mouth_player" type="AnimationPlayer" parent="Mouth"]
+root_node = NodePath("../Mouth_idle")
+anims/idle_mouth = SubResource( 9 )
+
+[node name="Mouth_tree" type="AnimationTree" parent="Mouth/Mouth_player"]
+tree_root = SubResource( 11 )
+anim_player = NodePath("..")
+parameters/playback = SubResource( 12 )
+parameters/BlendSpace2D/blend_position = Vector2( 0, 0 )
+
+[node name="Eyebrows" type="Sprite" parent="."]
+
+[node name="Eyebrows_idle" type="Sprite" parent="Eyebrows"]
+texture = ExtResource( 3 )
+
+[node name="Cheek" type="Sprite" parent="."]
+
+[node name="Cheek_idle" type="Sprite" parent="Cheek"]
+texture = ExtResource( 4 )
