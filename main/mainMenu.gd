@@ -1,5 +1,6 @@
 extends Control
 
+signal optionSelected()
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,5 +17,5 @@ func _ready():
 #	pass
 
 
-func _on_TextureButton_pressed():
-	get_tree().change_scene("res://menuManager.tscn")
+func _on_TimerButton_pressed():
+	emit_signal("optionSelected")

@@ -1,6 +1,6 @@
 extends Control
 
-
+signal startTimer(s,m,h)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,5 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_TextureButton_pressed():
-	get_tree().change_scene("res://menuManager.tscn")
+func _on_HBoxContainer_menuClosed(s, m, h):
+	emit_signal("startTimer", s, m, h)
+

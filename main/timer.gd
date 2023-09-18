@@ -1,6 +1,6 @@
 extends Control
 
-
+signal passTimeValues(secs, mins, hours)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,5 +16,8 @@ func _ready():
 #	pass
 
 
-func _on_TextureButton_pressed():
-	get_tree().change_scene("res://menuManager.tscn")
+func _on_setTimeValue_startTimer(s, m, h):
+	emit_signal("passTimeValues", s, m, h)
+
+func _on_TextDisplayer_finished():
+	pass # Replace with function body.
