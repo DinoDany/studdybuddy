@@ -86,3 +86,4 @@ texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 7 )
 
 [connection signal="pressed" from="TimerButton" to="." method="_on_TimerButton_pressed"]
+[connection signal="pressed" from="PomodoroButton" to="." method="_on_PomodoroButton_pressed"]

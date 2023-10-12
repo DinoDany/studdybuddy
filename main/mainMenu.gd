@@ -1,6 +1,6 @@
 extends Control
 
-signal optionSelected()
+signal optionSelected(selected)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,4 +18,8 @@ func _ready():
 
 
 func _on_TimerButton_pressed():
-	emit_signal("optionSelected")
+	emit_signal("optionSelected", "timer")
+
+
+func _on_PomodoroButton_pressed():
+	emit_signal("optionSelected", "pomodoro")

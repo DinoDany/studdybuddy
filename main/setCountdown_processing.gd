@@ -9,10 +9,10 @@ var h = 0
 var selected = "mins"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	get_node("Hours").bbcode_text = "[center]"+str(h)
-	get_node("Minutes").bbcode_text = "[center]"+str(m).pad_zeros(2)
-	get_node("Seconds").bbcode_text = "[center]"+str(s).pad_zeros(2)
+func _process(_delta):
+	get_node("Hours").bbcode_text   = "[center]" + str(h)
+	get_node("Minutes").bbcode_text = "[center]" + str(m).pad_zeros(2)
+	get_node("Seconds").bbcode_text = "[center]" + str(s).pad_zeros(2)
 	pass
 
 func _on_Hours_gui_input(event):

@@ -136,6 +136,7 @@ states/BlendSpace2D/position = Vector2( 347, 54 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
 [node name="Macau" type="KinematicBody2D"]
+position = Vector2( 235, 151 )
 script = ExtResource( 6 )
 
 [node name="Eyes" type="Sprite" parent="."]

@@ -1,10 +1,12 @@
 extends Control
 
+# Declare signals here
 signal passTimeValues(secs, mins, hours)
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal returnToMain()
+signal showMessage()
 
+# Declare member variables here
+var mode
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,8 +18,22 @@ func _ready():
 #	pass
 
 
-func _on_setTimeValue_startTimer(s, m, h):
+func _on_setCountdown_startTimer(s, m, h):
 	emit_signal("passTimeValues", s, m, h)
+	mode = "timer"
+	
+func _on_pomodoro_startPomodoro(s_pom, m_pom, h_pom):
+	emit_signal("passTimeValues", s_pom, m_pom, h_pom)
+	mode = "pomodoro"
 
-func _on_TextDisplayer_finished():
-	pass # Replace with function body.
+func _on_TextDisplayer_finished():            #When timer finishes, return to idle screen. Note: Might change to visibility instead
+	if mode == "timer":
+		get_tree().change_scene("res://idle.tscn")
+	elif mode == "pomodoro":
+		emit_signal("showMessage")
+	#emit_signal("returnToMain")
+
+func _on_TextureButton_pressed():             #When the return button is pressed, go back to main menu but keep the countdown running in the background
+	emit_signal("returnToMain")
+
+
